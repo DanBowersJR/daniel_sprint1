@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartList = document.getElementById("cart");
 
-  cartList.innerHTML = ""; // Clear any existing items
+  cartList.innerHTML = "";
 
   let subtotal = 0;
 
@@ -18,12 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     subtotal += parseFloat(item.price.replace("$", "")) * item.quantity;
   });
 
-  // Calculate tax and total
-  const taxRate = 0.15;
-  const tax = subtotal * taxRate;
+  const tax = subtotal * 0.15;
   const total = subtotal + tax;
 
-  // Create and append subtotal, tax, and total elements
   const subtotalElement = document.createElement("p");
   subtotalElement.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
   cartList.appendChild(subtotalElement);
@@ -36,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
   totalElement.textContent = `Total: $${total.toFixed(2)}`;
   cartList.appendChild(totalElement);
 
-  // Handle remove from cart button clicks
   cartList.addEventListener("click", function (e) {
     if (e.target.classList.contains("remove-from-cart")) {
       const itemName = e.target.parentElement.getAttribute("data-name");
@@ -56,13 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       e.target.parentElement.remove();
 
-      // Update subtotal, tax, and total
       subtotal = 0;
       cart.forEach((item) => {
         subtotal += parseFloat(item.price.replace("$", "")) * item.quantity;
       });
 
-      const tax = subtotal * taxRate;
+      const tax = subtotal * 0.15;
       const total = subtotal + tax;
 
       subtotalElement.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
