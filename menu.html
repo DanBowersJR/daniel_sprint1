@@ -7,7 +7,6 @@
     <title>Gary's Breakfast Diner</title>
   </head>
   <body>
-    <script src="scripts/scripts.js" defer></script>
     <!-- Main Menu -->
     <header>
       <div class="logo">
@@ -24,7 +23,7 @@
     <!-- FOOD Menu -->
     <main class="main-content">
       <section class="menu-grid">
-        <div class="menu-item">
+        <div class="menu-item" data-productid="pancakes">
           <img
             src="Images/breakPancakes.jpg"
             alt="Pancakes with Crispy Bacon and Scrambled Eggs"
@@ -208,16 +207,15 @@
       </section>
     </main>
     <ul id="cart">
-      <ul id="cart">
-        <!-- items appear here for now until order page is finalized -->
-      </ul>
+      <!-- items appear here for now until order page is finalized -->
     </ul>
     <!-- Footer -->
+    <footer>
+      <p class="footer-text">
+        "All 9 breakfast combos come with a fresh cup of coffee—start your day
+        with a smile!"
+      </p>
+    </footer>
+    <script src="scripts/scripts.js" defer></script>
   </body>
-  <footer>
-    <p class="footer-text">
-      "All 9 breakfast combos come with a fresh cup of coffee—start your day
-      with a smile!"
-    </p>
-  </footer>
 </html>
